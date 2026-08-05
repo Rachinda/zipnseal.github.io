@@ -25,11 +25,23 @@
         <img src="assets/logo.png" alt="Zip & Seal Logo" class="brand-logo-img">
       </a>
 
+
+		<div class="mobile-toggle">
+		<a href="tel:+94717171299" class="nav-phone-btn">
+            <i class="ri-phone-fill"></i> 0717171299
+          </a>
+		</div>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
         <i class="ri-menu-line"></i>
       </button>
 
       <ul class="nav-menu" id="navMenu">
+        <li class="mobile-menu-header">
+          <span class="mobile-menu-title">Menu</span>
+          <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close Navigation Menu">
+            <i class="ri-close-line"></i>
+          </button>
+        </li>
         <li><a href="#banner" class="nav-link">Home</a></li>
         <li><a href="#services" class="nav-link">Services</a></li>
         <li><a href="#products" class="nav-link">Products</a></li>
@@ -37,12 +49,15 @@
         <li><a href="#contact" class="nav-link">Contact Us</a></li>
         <li>
           <a href="tel:+94717171299" class="nav-phone-btn">
-            <i class="ri-phone-fill"></i> +94717171299
+            <i class="ri-phone-fill"></i> 0717171299
           </a>
         </li>
       </ul>
     </div>
   </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
 
   <!-- ==================== 1. FULL-SCREEN BANNER CAROUSEL ==================== -->
   <section class="hero-banner" id="banner">
@@ -114,15 +129,18 @@
           <div class="hero-content-wrapper">
             <div class="badge">
               <span class="badge-dot"></span>
-              ENGINEERED FOR CABIN PRESSURE SAFETY
+              AUTHENTIC TRADITIONAL RECIPES
             </div>
-            <h1>Leak-Lock Jars & <br><span class="gradient-text">Pressure-Proof Can Sealing.</span></h1>
+            <h1>Your Favorite Meals <br><span class="gradient-text">Freshly Cooked & Travel-Ready</span></h1>
             <p class="hero-subtitle">
-              Transporting pickles, curries, sweets, or canned goods? Our 100% mess-free sealing locks in flavor and protects against cabin pressure changes and high-altitude bursts.
+              Craving island flavors abroad? We cook and vacuum-pack authentic Sri Lankan dishes so they are perfectly safe and ready to fly.
             </p>
             <div class="hero-actions">
-              <a href="#services" class="btn btn-primary"><i class="ri-shield-check-line"></i> Jar & Can Sealing</a>
+              <a href="#services" class="btn btn-primary"><i class="ri-shield-check-line"></i> Meal Prep</a>
               <a href="#contact" class="btn btn-secondary"><i class="ri-mail-send-line"></i> Inquire Now</a>
+            </div>
+            <div class="hero-preorder-badge">
+              <i class="ri-calendar-event-fill"></i> Pre-Orders Only
             </div>
           </div>
         </div>
@@ -161,7 +179,7 @@
         <div class="glass-card service-card">
           <h3 class="service-main-heading">Taste of Home</h3>
           <div class="service-img">
-            <img src="assets/food_seal.png" alt="Taste of Home Food Vacuum Packing">
+            <img src="assets/srilankan_cooked_food.jpg" alt="Taste of Home Authentic Sri Lankan Food Vacuum Packing">
           </div>
           <h4 class="service-sub-heading">Food Vacuum Packing</h4>
           <p>Preserve the essence of home with our professional-grade sealing for packaged cooked meals, spices, and dry goods to meet airline standards.</p>
@@ -205,15 +223,16 @@
 
         <!-- Service 4 -->
         <div class="glass-card service-card">
-          <h3 class="service-main-heading">Pressure Proof</h3>
+          <h3 class="service-main-heading">Island Eats</h3>
           <div class="service-img">
             <img src="assets/commercial_seal.png" alt="Pressure Proof Can Sealing">
           </div>
-          <h4 class="service-sub-heading">Can Sealing</h4>
-          <p>Secure your canned goods. Our sealing process protects against pressure bursts and physical damage for total peace of mind.</p>
+          <h4 class="service-sub-heading">Meal Prep on Request</h4>
+          <p>Take authentic Sri Lankan curries and meals wherever you go. Our freshly prepared dishes are expertly vacuum-sealed for safe, hassle-free transit. Please note: All freshly cooked meals are available by pre-order only.</p>
           <ul class="service-features">
-            <li><i class="ri-check-line"></i> High-altitude burst protection</li>
-            <li><i class="ri-check-line"></i> Robust defense against transit damage</li>
+            <li><i class="ri-check-line"></i> Authentic traditional recipes</li>
+            <li><i class="ri-check-line"></i> Vacuum-sealed for extended freshness</li>
+			<li><i class="ri-check-line"></i> 100% airport and customs compliant</li>
           </ul>
         </div>
 
@@ -234,7 +253,7 @@
       </div>
 
       <!-- Slider Controls Header -->
-      <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-bottom: 1.5rem;">
+      <div class="product-slider-controls">
         <button class="carousel-arrow" id="prodPrev" aria-label="Previous Product"><i class="ri-arrow-left-s-line"></i></button>
         <button class="carousel-arrow" id="prodNext" aria-label="Next Product"><i class="ri-arrow-right-s-line"></i></button>
       </div>

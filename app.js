@@ -4,10 +4,12 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* --- 1. Sticky Navbar & Mobile Toggle --- */
+  /* --- 1. Sticky Navbar & Mobile Navigation Drawer --- */
   const navbar = document.getElementById('navbar');
   const mobileToggle = document.getElementById('mobileToggle');
+  const mobileCloseBtn = document.getElementById('mobileCloseBtn');
   const navMenu = document.getElementById('navMenu');
+  const navOverlay = document.getElementById('navOverlay');
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
@@ -17,23 +19,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  if (mobileToggle && navMenu) {
+  const openMobileMenu = () => {
+    if (navMenu) navMenu.classList.add('open');
+    if (navOverlay) navOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeMobileMenu = () => {
+    if (navMenu) navMenu.classList.remove('open');
+    if (navOverlay) navOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  if (mobileToggle) {
     mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-      const icon = mobileToggle.querySelector('i');
-      if (icon) {
-        icon.className = navMenu.classList.contains('open') ? 'ri-close-line' : 'ri-menu-line';
+      if (navMenu && navMenu.classList.contains('open')) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
       }
     });
-
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('open');
-        const icon = mobileToggle.querySelector('i');
-        if (icon) icon.className = 'ri-menu-line';
-      });
-    });
   }
+
+  if (mobileCloseBtn) {
+    mobileCloseBtn.addEventListener('click', closeMobileMenu);
+  }
+
+  if (navOverlay) {
+    navOverlay.addEventListener('click', closeMobileMenu);
+  }
+
+  document.querySelectorAll('.nav-link, .nav-phone-btn').forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
 
   /* --- 2. Multi-Image Full-Screen Hero Banner Carousel --- */
   const heroSlides = document.querySelectorAll('.hero-slide');
